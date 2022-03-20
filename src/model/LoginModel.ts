@@ -38,18 +38,17 @@ class LoginModel {
   private async write(newContent: string) {
     try {
       await fs.writeFile('login.json', newContent, 'utf8');
+      this.read();
     } catch (err) {
       console.log(err);
     }
   }
 
+  findUser(email: string) {
+    return this.users.find((u) => u.email === email);
+  }
+
   register({ email, password }: IUserRegister) {
-    const userExist = this.users.find((u) => u.email === email);
-
-    if (userExist) {
-      throw new Error('User already exist');
-    }
-
     const token = crypto.randomBytes(8).toString('hex');
     const attUsers = [...this.users, { email, password, token }];
 
