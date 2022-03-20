@@ -1,4 +1,5 @@
 import {
+  haveFormat,
   isDefinied,
   isMoreThenMinLength,
   isNotEmpty,
@@ -30,3 +31,42 @@ const isPasswordValid = [
   isPasswordNotEmpty,
   passwordHaveMinLength,
 ];
+
+const EMAIL_FORMAT = new RegExp(
+  /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/,
+  'gm'
+);
+const EMAIL_ERRORS = {
+  undefined: 'O campo "email" é obrigatório',
+  empty: 'O campo "email" é obrigatório',
+  emailFormat: 'O "email" deve ter o formato "email@email.com"',
+};
+
+const isEmailUndefined = (email: string) => {
+  if (!isDefinied(email)) throw new Error(EMAIL_ERRORS.undefined);
+};
+
+const isEmailNotEmpty = (email: string) => {
+  if (!isNotEmpty(email)) throw new Error(EMAIL_ERRORS.empty);
+};
+
+const emailHaveMinLength = (email: string) => {
+  if (!haveFormat(EMAIL_FORMAT, email)) {
+    throw new Error(EMAIL_ERRORS.emailFormat);
+  }
+};
+
+const isEmailValid = [isEmailUndefined, isEmailNotEmpty, emailHaveMinLength];
+
+const validRegister = ({
+  email,
+  password,
+}: {
+  email: string;
+  password: string;
+}) => {
+  isPasswordValid.forEach((f) => f(password));
+  isEmailValid.forEach((f) => f(email));
+};
+
+export { validRegister };
