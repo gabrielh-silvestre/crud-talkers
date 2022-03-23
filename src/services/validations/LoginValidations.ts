@@ -56,7 +56,7 @@ const emailHaveMinLength = (email: string) => {
   }
 };
 
-const isEmailValid = [isEmailUndefined, isEmailNotEmpty, emailHaveMinLength];
+const isEmailValid = [isEmailUndefined, isEmailNotEmpty];
 
 const validRegister = ({
   email,
