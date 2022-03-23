@@ -3,6 +3,7 @@ import { loginController } from '../useCases/LoginUseCase';
 
 const loginRoute = express.Router();
 
-loginRoute.post('/', loginController.signUpUser);
+loginRoute.post('/register', loginController.signUpUser);
+loginRoute.post('/', loginController.singInUser);
 
 export { loginRoute };

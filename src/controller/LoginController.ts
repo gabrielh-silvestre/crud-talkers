@@ -21,6 +21,20 @@ class LoginController {
 
     return res.status(code).json({ token });
   };
+
+  singInUser = (req: Request, res: Response) => {
+    const { email, password } = req.body;
+    const { code, message, token } = this.loginService.loginUser({
+      email,
+      password,
+    });
+
+    if (message) {
+      return res.status(code).json({ message });
+    }
+
+    return res.status(code).json({ token });
+  };
 }
 
 export { LoginController };
