@@ -49,6 +49,22 @@ class TalkerService {
 
     return { code: 201, talker };
   }
+
+  update(id: string, talker: ITalker) {
+    try {
+      isTalkerValid(talker);
+    } catch (err: any) {
+      return { code: 401, message: err.message };
+    }
+
+    try {
+      this.talkersModel.update(Number(id), talker);
+    } catch (err: any) {
+      return { code: 500, message: err.message };
+    }
+
+    return { code: 200, talker };
+  }
 }
 
 export { TalkerService };
