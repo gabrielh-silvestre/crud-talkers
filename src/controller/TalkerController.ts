@@ -48,6 +48,24 @@ class TalkerController {
 
     return res.status(code).json(talker);
   };
+
+  updateTalker = (req: Request, res: Response) => {
+    const { name, age, talk } = req.body;
+    const { id } = req.params;
+
+    const attTalker = { name, age, talk };
+
+    const { code, message, talker } = this.talkerService.update(
+      id,
+      attTalker as ITalker
+    );
+
+    if (message) {
+      return res.status(code).json({ message });
+    }
+
+    return res.status(code).json(talker);
+  };
 }
 
 export { TalkerController };
