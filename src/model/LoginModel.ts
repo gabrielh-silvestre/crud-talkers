@@ -56,6 +56,14 @@ class LoginModel {
 
     return token;
   }
+
+  findAll() {
+    return this.users;
+  }
+
+  findByToken(token: string) {
+    return this.users.find((u) => u.token === token);
+  }
 }
 
 export { LoginModel };

@@ -1,4 +1,4 @@
-import { Request, Response } from 'express';
+import { NextFunction, Request, Response } from 'express';
 import { LoginService } from '../services/LoginService';
 
 class LoginController {
@@ -34,6 +34,22 @@ class LoginController {
     }
 
     return res.status(code).json({ token });
+  };
+
+  authUserByToken = (req: Request, res: Response, next: NextFunction) => {
+    const token = req.headers.authorization;
+
+    if (!token) {
+      return res.status(401).json({ message: 'Token inválido' });
+    }
+
+    const findedUser = this.loginService.findByToken(token);
+
+    if (!findedUser) {
+      return res.status(401).json({ message: 'Token não encontrado' });
+    }
+
+    next();
   };
 }
 

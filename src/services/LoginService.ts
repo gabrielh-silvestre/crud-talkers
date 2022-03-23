@@ -48,6 +48,17 @@ class LoginService {
 
     return { code: 200, token: userExist.token };
   }
+
+  findAll() {
+    return this.loginModel.findAll();
+  }
+  
+  findByToken(token: string) {
+    const user = this.loginModel.findByToken(token);
+
+    if (user) return { code: 200, user };
+    return { code: 404, message: 'Usuário não encontrado' };
+  }
 }
 
 export { LoginService };
