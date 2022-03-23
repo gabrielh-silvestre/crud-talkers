@@ -52,7 +52,18 @@ class TalkerModel {
   }
 
   create(talker: ITalker) {
-    const talkers = [...this.talkers, talker];
+    const newTalker = {
+      ...talker,
+      id: this.talkers.length + 1,
+    };
+
+    const talkers = [...this.talkers, newTalker];
+
+    this.write(this.stringfy(talkers));
+  }
+
+  update(id: number, talker: ITalker) {
+    const talkers = this.talkers.map((t) => (t.id === id ? { ...talker, id } : t));
 
     this.write(this.stringfy(talkers));
   }
