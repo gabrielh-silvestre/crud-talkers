@@ -1,5 +1,5 @@
 import { LoginModel } from '../model/LoginModel';
-import { validRegister } from './validations/LoginValidations';
+import { validRegister } from './validations/loginValidations';
 
 class LoginService {
   private loginModel: LoginModel;
