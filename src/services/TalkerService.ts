@@ -1,4 +1,15 @@
 import { TalkerModel } from '../model/TalkerModel';
+import { isTalkerValid } from './validations/talkerValidations';
+
+interface ITalker {
+  name: string;
+  age: number;
+  id: number;
+  talk: {
+    watchedAt: string;
+    rate: number;
+  };
+}
 
 class TalkerService {
   private talkersModel: TalkerModel;
@@ -21,6 +32,22 @@ class TalkerService {
     }
 
     return { code: 404, message: 'Pessoa palestrante não encontrada' };
+  }
+
+  create(talker: ITalker) {
+    try {
+      isTalkerValid(talker);
+    } catch (err: any) {
+      return { code: 400, message: err.message };
+    }
+
+    try {
+      this.talkersModel.create(talker);
+    } catch (err: any) {
+      return { code: 500, message: err.message };
+    }
+
+    return { code: 201, talker };
   }
 }
 
