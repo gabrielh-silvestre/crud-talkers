@@ -1,6 +1,16 @@
 import { Request, Response } from 'express';
 import { TalkerService } from '../services/TalkerService';
 
+interface ITalker {
+  name: string;
+  age: number;
+  id: number;
+  talk: {
+    watchedAt: string;
+    rate: number;
+  };
+}
+
 class TalkerController {
   private talkerService: TalkerService;
 
@@ -21,6 +31,21 @@ class TalkerController {
     if (message) {
       return res.status(code).json({ message });
     }
+    return res.status(code).json(talker);
+  };
+
+  createTalker = (req: Request, res: Response) => {
+    const { name, age, talk } = req.body;
+    const newTalker = { name, age, talk };
+
+    const { code, message, talker } = this.talkerService.create(
+      newTalker as ITalker
+    );
+
+    if (message) {
+      return res.status(code).json({ message });
+    }
+
     return res.status(code).json(talker);
   };
 }
