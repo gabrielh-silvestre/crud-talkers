@@ -15,6 +15,12 @@ const isMoreThenMinNumber = (minNumber: number, ...numbers: number[]) =>
 const isLessThenMaxNumber = (maxNumber: number, ...numbers: number[]) =>
   numbers.every((n) => n <= maxNumber);
 
+const isBetweenMaxAndMinNumber = (
+  maxNumber: number,
+  minNumber: number,
+  ...numbers: number[]
+) => numbers.every((n) => n <= maxNumber && n >= minNumber);
+
 const haveFormat = (regexFormat: RegExp, ...strings: string[]) =>
   strings.every((s) => regexFormat.test(s));
 
@@ -25,5 +31,6 @@ export {
   isMoreThenMinLength,
   isMoreThenMinNumber,
   isLessThenMaxNumber,
+  isBetweenMaxAndMinNumber,
   haveFormat,
 };
