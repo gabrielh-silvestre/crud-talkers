@@ -75,6 +75,12 @@ class TalkerService {
 
     return { code: 200 };
   }
+
+  findByName(name: string) {
+    const talkers = this.talkersModel.findByName(name);
+
+    return { code: 200, talkers };
+  }
 }
 
 export { TalkerService };

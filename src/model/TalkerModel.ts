@@ -63,7 +63,9 @@ class TalkerModel {
   }
 
   update(id: number, talker: ITalker) {
-    const talkers = this.talkers.map((t) => (t.id === id ? { ...talker, id } : t));
+    const talkers = this.talkers.map((t) =>
+      t.id === id ? { ...talker, id } : t
+    );
 
     this.write(this.stringfy(talkers));
   }
@@ -72,6 +74,12 @@ class TalkerModel {
     const talkers = this.talkers.filter((t) => t.id !== id);
 
     this.write(this.stringfy(talkers));
+  }
+
+  findByName(name: string) {
+    return this.talkers.filter((t) =>
+      t.name.toLowerCase().includes(name.toLowerCase())
+    );
   }
 }
 

@@ -5,8 +5,11 @@ import { loginController } from '../useCases/LoginUseCase';
 
 const talkerRoute = express.Router();
 
-talkerRoute.get('/', talkerController.getAllTalkers);
-talkerRoute.get('/:id', talkerController.getOneTalker);
+talkerRoute.get(
+  '/search',
+  loginController.authUserByToken,
+  talkerController.searchByName
+);
 
 talkerRoute.post(
   '/',
@@ -25,5 +28,9 @@ talkerRoute.delete(
   loginController.authUserByToken,
   talkerController.deleteTalker
 );
+
+talkerRoute.get('/', talkerController.getAllTalkers);
+
+talkerRoute.get('/:id', talkerController.getOneTalker);
 
 export { talkerRoute };

@@ -78,6 +78,13 @@ class TalkerController {
 
     return res.status(code).end();
   };
+
+  searchByName = (req: Request, res: Response) => {
+    const { q } = req.query;
+    const { code, talkers } = this.talkerService.findByName(q as string);
+
+    return res.status(code).json(talkers);
+  }
 }
 
 export { TalkerController };
