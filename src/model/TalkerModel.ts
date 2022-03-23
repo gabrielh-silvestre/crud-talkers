@@ -67,6 +67,12 @@ class TalkerModel {
 
     this.write(this.stringfy(talkers));
   }
+
+  delete(id: number) {
+    const talkers = this.talkers.filter((t) => t.id !== id);
+
+    this.write(this.stringfy(talkers));
+  }
 }
 
 export { TalkerModel };

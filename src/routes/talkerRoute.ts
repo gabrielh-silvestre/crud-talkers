@@ -20,4 +20,10 @@ talkerRoute.put(
   talkerController.updateTalker
 );
 
+talkerRoute.delete(
+  '/:id',
+  loginController.authUserByToken,
+  talkerController.deleteTalker
+);
+
 export { talkerRoute };

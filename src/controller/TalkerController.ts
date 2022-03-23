@@ -66,6 +66,18 @@ class TalkerController {
 
     return res.status(code).json(talker);
   };
+
+  deleteTalker = (req: Request, res: Response) => {
+    const { id } = req.params;
+
+    const { code, message } = this.talkerService.delete(id);
+
+    if (message) {
+      return res.status(code).json({ message });
+    }
+
+    return res.status(code).end();
+  };
 }
 
 export { TalkerController };
