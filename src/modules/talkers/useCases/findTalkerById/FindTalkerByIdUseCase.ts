@@ -1,6 +1,6 @@
 import { ITalkerModel } from '../../interfaces';
 
-class FindByIdUseCase {
+class FindTalkerByIdUseCase {
   constructor(private talkersModel: ITalkerModel) {}
 
   execute(id: number) {
@@ -14,4 +14,4 @@ class FindByIdUseCase {
   }
 }
 
-export { FindByIdUseCase };
+export { FindTalkerByIdUseCase };

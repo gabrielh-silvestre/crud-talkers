@@ -1,9 +1,9 @@
 import { Request, Response } from 'express';
 
-import { FindByIdUseCase } from './FindTalkerByIdUseCase';
+import { FindTalkerByIdUseCase } from './FindTalkerByIdUseCase';
 
-class FindByIdController {
-  constructor(private findByIdUseCase: FindByIdUseCase) {}
+class FindTalkerByIdController {
+  constructor(private findByIdUseCase: FindTalkerByIdUseCase) {}
 
   handle = (req: Request, res: Response): Response => {
     const { id } = req.params;
@@ -16,4 +16,4 @@ class FindByIdController {
   };
 }
 
-export { FindByIdController };
+export { FindTalkerByIdController };

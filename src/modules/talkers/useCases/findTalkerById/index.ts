@@ -1,9 +1,11 @@
 import { TalkerModel } from '../../model/TalkerModel';
-import { FindByIdUseCase } from './FindTalkerByIdUseCase';
-import { FindByIdController } from './FindTalkerByIdController';
+import { FindTalkerByIdUseCase } from './FindTalkerByIdUseCase';
+import { FindTalkerByIdController } from './FindTalkerByIdController';
 
 const talkerModel = new TalkerModel();
-const findByIdUseCase = new FindByIdUseCase(talkerModel);
-const findByIdController = new FindByIdController(findByIdUseCase);
+const findTalkerByIdUseCase = new FindTalkerByIdUseCase(talkerModel);
+const findTalkerByIdController = new FindTalkerByIdController(
+  findTalkerByIdUseCase
+);
 
-export { findByIdController };
+export { findTalkerByIdController };
