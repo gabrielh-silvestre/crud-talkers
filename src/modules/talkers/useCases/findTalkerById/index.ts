@@ -1,6 +1,6 @@
 import { TalkerModel } from '../../model/TalkerModel';
-import { FindByIdController } from './FindTalkerByIdController';
 import { FindByIdUseCase } from './FindTalkerByIdUseCase';
+import { FindByIdController } from './FindTalkerByIdController';
 
 const talkerModel = new TalkerModel();
 const findByIdUseCase = new FindByIdUseCase(talkerModel);
