@@ -1,36 +1,42 @@
 import express from 'express';
 
-import { talkerController } from '../useCases/TalkerUseCase';
-import { loginController } from '../useCases/LoginUseCase';
+import { createTalkerController } from '../modules/talkers/useCases/createTalker';
+import { deleteTalkerController } from '../modules/talkers/useCases/deleteTalker';
+import { findAllTalkerController } from '../modules/talkers/useCases/findAllTalkers';
+import { findTalkerByIdController } from '../modules/talkers/useCases/findTalkerById';
+import { searchByTalkerNameController } from '../modules/talkers/useCases/searchByTalkerName';
+import { updateTalkerController } from '../modules/talkers/useCases/updateTalker';
+
+import { findUserByTokenController as auth } from '../modules/users/useCases/findUserByToken';
 
 const talkerRoute = express.Router();
 
 talkerRoute.get(
   '/search',
-  loginController.authUserByToken,
-  talkerController.searchByName
+  auth.handle,
+  searchByTalkerNameController.handle
 );
 
 talkerRoute.post(
   '/',
-  loginController.authUserByToken,
-  talkerController.createTalker
+  auth.handle,
+  createTalkerController.handle
 );
 
 talkerRoute.put(
   '/:id',
-  loginController.authUserByToken,
-  talkerController.updateTalker
+  auth.handle,
+  updateTalkerController.handle
 );
 
 talkerRoute.delete(
   '/:id',
-  loginController.authUserByToken,
-  talkerController.deleteTalker
+  auth.handle,
+  deleteTalkerController.handle
 );
 
-talkerRoute.get('/', talkerController.getAllTalkers);
+talkerRoute.get('/', findAllTalkerController.handle);
 
-talkerRoute.get('/:id', talkerController.getOneTalker);
+talkerRoute.get('/:id', findTalkerByIdController.handle);
 
 export { talkerRoute };

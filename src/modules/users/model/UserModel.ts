@@ -1,19 +1,9 @@
 import fs from 'fs/promises';
 import crypto from 'crypto';
+import { IRegister, IUser, IUserModel } from '../interfaces';
 
-interface IUserRegister {
-  email: string;
-  password: string;
-}
-
-interface IUsers {
-  email: string;
-  password: string;
-  token: string;
-}
-
-class LoginModel {
-  private users: IUsers[];
+class UserModel implements IUserModel {
+  private users: IUser[];
 
   constructor() {
     this.read();
@@ -23,7 +13,7 @@ class LoginModel {
     return JSON.parse(strData);
   }
 
-  private stringfy(data: IUsers[]) {
+  private stringfy(data: IUser[]) {
     return JSON.stringify(data);
   }
 
@@ -48,7 +38,7 @@ class LoginModel {
     return this.users.find((u) => u.email === email);
   }
 
-  register({ email, password }: IUserRegister) {
+  register({ email, password }: IRegister) {
     const token = crypto.randomBytes(8).toString('hex');
     const attUsers = [...this.users, { email, password, token }];
 
@@ -66,4 +56,4 @@ class LoginModel {
   }
 }
 
-export { LoginModel };
+export { UserModel };

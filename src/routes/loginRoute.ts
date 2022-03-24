@@ -1,9 +1,11 @@
 import express from 'express';
-import { loginController } from '../useCases/LoginUseCase';
+
+import { registerUserController } from '../modules/users/useCases/registerUser';
+import { singInUserController } from '../modules/users/useCases/singInUser';
 
 const loginRoute = express.Router();
 
-loginRoute.post('/register', loginController.signUpUser);
-loginRoute.post('/', loginController.singInUser);
+loginRoute.post('/register', registerUserController.handle);
+loginRoute.post('/', singInUserController.handle);
 
 export { loginRoute };
