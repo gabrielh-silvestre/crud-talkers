@@ -2,7 +2,7 @@ import fs from 'fs/promises';
 import crypto from 'crypto';
 import { IRegister, IUser, IUserModel } from '../interfaces';
 
-class LoginModel implements IUserModel {
+class UserModel implements IUserModel {
   private users: IUser[];
 
   constructor() {
@@ -56,4 +56,4 @@ class LoginModel implements IUserModel {
   }
 }
 
-export { LoginModel };
+export { UserModel };
