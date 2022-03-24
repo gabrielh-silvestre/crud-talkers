@@ -7,31 +7,31 @@ import { findTalkerByIdController } from '../modules/talkers/useCases/findTalker
 import { searchByTalkerNameController } from '../modules/talkers/useCases/searchByTalkerName';
 import { updateTalkerController } from '../modules/talkers/useCases/updateTalker';
 
-import { loginController } from '../modules/users/useCases/LoginUseCase';
+import { findUserByTokenController as auth } from '../modules/users/useCases/findUserByToken';
 
 const talkerRoute = express.Router();
 
 talkerRoute.get(
   '/search',
-  loginController.authUserByToken,
+  auth.handle,
   searchByTalkerNameController.handle
 );
 
 talkerRoute.post(
   '/',
-  loginController.authUserByToken,
+  auth.handle,
   createTalkerController.handle
 );
 
 talkerRoute.put(
   '/:id',
-  loginController.authUserByToken,
+  auth.handle,
   updateTalkerController.handle
 );
 
 talkerRoute.delete(
   '/:id',
-  loginController.authUserByToken,
+  auth.handle,
   deleteTalkerController.handle
 );
 
