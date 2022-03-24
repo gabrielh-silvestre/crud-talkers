@@ -4,7 +4,7 @@ import { SingInUserUseCase } from './SingInUserUseCase';
 class SingInUserController {
   constructor(private singInUseCase: SingInUserUseCase) {}
 
-  handle(req: Request, res: Response): Response {
+  handle = (req: Request, res: Response): Response => {
     const { email, password } = req.body;
     const user = { email, password };
 
@@ -16,7 +16,7 @@ class SingInUserController {
     }
 
     return res.status(code).json({ token });
-  }
+  };
 }
 
 export { SingInUserController };

@@ -4,7 +4,11 @@ import { FindUserByTokenUseCase } from './FindUserByTokenUseCase';
 class FindUserByTokenController {
   constructor(private findUserByTokenUseCase: FindUserByTokenUseCase) {}
 
-  handle(req: Request, res: Response, next: NextFunction): Response | void {
+  handle = (
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ): Response | void => {
     const token = req.headers.authorization;
 
     if (!token) {
@@ -18,7 +22,7 @@ class FindUserByTokenController {
     }
 
     next();
-  }
+  };
 }
 
 export { FindUserByTokenController };

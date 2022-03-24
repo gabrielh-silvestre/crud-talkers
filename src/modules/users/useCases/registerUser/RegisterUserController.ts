@@ -4,7 +4,7 @@ import { RegisterUserUseCase } from './RegisterUserUseCase';
 class RegisterUserController {
   constructor(private registerUserUseCase: RegisterUserUseCase) {}
 
-  handle(req: Request, res: Response): Response {
+  handle = (req: Request, res: Response): Response => {
     const { email, password } = req.body;
     const newUser = { email, password };
 
@@ -16,7 +16,7 @@ class RegisterUserController {
     }
 
     return res.status(code).json({ token });
-  }
+  };
 }
 
 export { RegisterUserController };
