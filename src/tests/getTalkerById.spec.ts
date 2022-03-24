@@ -9,7 +9,7 @@ import { talkers } from './mocks/allTalkers';
 chai.use(chaiHttp);
 const { expect } = chai;
 
-describe('Teat get talker by ID feature', () => {
+describe('Test get talker by ID feature', () => {
   before(() => {
     sinon
       .stub(fs, 'readFile')
