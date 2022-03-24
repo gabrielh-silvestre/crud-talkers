@@ -1,5 +1,5 @@
-import { TalkerModel } from '../model/TalkerModel';
-import { isTalkerValid } from './validations/talkerValidations';
+import { ITalkerModel } from '../interfaces';
+import { isTalkerValid } from '../../../validations/talkerValidations';
 
 interface ITalker {
   name: string;
@@ -12,11 +12,7 @@ interface ITalker {
 }
 
 class TalkerService {
-  private talkersModel: TalkerModel;
-
-  constructor(model: TalkerModel) {
-    this.talkersModel = model;
-  }
+  constructor(private talkersModel: ITalkerModel) {}
 
   getAll() {
     const talkers = this.talkersModel.getAll();

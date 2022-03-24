@@ -1,7 +1,7 @@
 import express from 'express';
 
-import { talkerController } from '../useCases/TalkerUseCase';
-import { loginController } from '../useCases/LoginUseCase';
+import { talkerController } from '../modules/talkers/useCases/TalkerUseCase';
+import { loginController } from '../modules/users/useCases/LoginUseCase';
 
 const talkerRoute = express.Router();
 

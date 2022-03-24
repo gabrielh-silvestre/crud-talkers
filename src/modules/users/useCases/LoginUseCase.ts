@@ -1,4 +1,4 @@
-import { LoginController } from '../controller/LoginController';
+import { LoginController } from './LoginController';
 import { LoginModel } from '../model/LoginModel';
 import { LoginService } from '../services/LoginService';
 

@@ -1,5 +1,5 @@
 import express from 'express';
-import { loginController } from '../useCases/LoginUseCase';
+import { loginController } from '../modules/users/useCases/LoginUseCase';
 
 const loginRoute = express.Router();
 

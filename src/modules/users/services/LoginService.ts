@@ -1,12 +1,8 @@
-import { LoginModel } from '../model/LoginModel';
-import { validRegister } from './validations/loginValidations';
+import { validRegister } from '../../../validations/loginValidations';
+import { IUserModel } from '../interfaces';
 
 class LoginService {
-  private loginModel: LoginModel;
-
-  constructor(model: LoginModel) {
-    this.loginModel = model;
-  }
+  constructor(private loginModel: IUserModel) {}
 
   private userAlreadyExist(email: string) {
     const userExist = this.loginModel.findUser(email);

@@ -1,17 +1,9 @@
 import fs from 'fs/promises';
 
-interface ITalker {
-  name: string;
-  age: number;
-  id: number;
-  talk: {
-    watchedAt: string;
-    rate: number;
-  };
-}
+import { ITalker, ITalkerModel } from '../interfaces';
 
-class TalkerModel {
-  talkers: ITalker[];
+class TalkerModel implements ITalkerModel {
+  private talkers: ITalker[];
 
   constructor() {
     this.read();
@@ -30,7 +22,6 @@ class TalkerModel {
       this.talkers = this.parse(await fs.readFile('talker.json', 'utf8'));
     } catch (err) {
       console.log(err);
-      return "Can't read talker.json";
     }
   }
 

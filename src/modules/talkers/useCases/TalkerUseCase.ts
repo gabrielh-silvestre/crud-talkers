@@ -1,4 +1,4 @@
-import { TalkerController } from '../controller/TalkerController';
+import { TalkerController } from './TalkerController';
 import { TalkerModel } from '../model/TalkerModel';
 import { TalkerService } from '../services/TalkerService';
 
