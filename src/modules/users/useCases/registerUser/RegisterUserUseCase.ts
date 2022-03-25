@@ -12,14 +12,14 @@ class RegisterUserUseCase {
   execute(newUser: IRequest) {
     const userAlreadyExist = this.userModel.findUser(newUser.email);
 
-    if (userAlreadyExist) {
-      return { code: 409, message: 'Email já cadastrado' };
-    }
-
     try {
       validRegister(newUser);
     } catch (err: any) {
       return { code: 400, message: err.message };
+    }
+
+    if (userAlreadyExist) {
+      return { code: 409, message: 'Email já cadastrado' };
     }
 
     return { code: 201, token: this.userModel.register(newUser) };
