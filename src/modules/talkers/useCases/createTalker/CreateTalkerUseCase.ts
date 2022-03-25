@@ -20,9 +20,12 @@ class CreateTalkerUseCase {
       return { code: 400, message: err.message };
     }
 
+    const nextId = Math
+      .max(...this.talkersModel.getAll().map(({ id }) => id)) + 1;
+
     const newTalker = {
       ...talker,
-      id: this.talkersModel.getAll().length + 1,
+      id: nextId,
     };
 
     try {
@@ -31,7 +34,7 @@ class CreateTalkerUseCase {
       return { code: 500, message: err.message };
     }
 
-    return { code: 201, talker };
+    return { code: 201, talker: newTalker };
   }
 }
 
