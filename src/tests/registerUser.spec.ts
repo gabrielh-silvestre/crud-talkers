@@ -30,7 +30,7 @@ describe('Test new user register', () => {
   });
 
   describe('Success case', () => {
-    describe('POST /talker', () => {
+    describe('POST /user/register', () => {
       it('should have status 201', async () => {
         const res = await chai
           .request(app)
@@ -52,7 +52,7 @@ describe('Test new user register', () => {
   });
 
   describe('Fail cases', () => {
-    describe('POST /talker without email', () => {
+    describe('POST /user/register without email', () => {
       it('should have status 400', async () => {
         const res = await chai
           .request(app)
@@ -73,7 +73,7 @@ describe('Test new user register', () => {
       });
     });
 
-    describe('POST /talker without password', () => {
+    describe('POST /user/register without password', () => {
       it('should have status 400', async () => {
         const res = await chai
           .request(app)
@@ -119,7 +119,7 @@ describe('Test new user register', () => {
       });
     });
 
-    // describe('POST /talker with an email already use', () => {
+    // describe('POST /user/register with an email already use', () => {
     //   it('should have status 409', async () => {
     //     const res = await chai
     //       .request(app)
