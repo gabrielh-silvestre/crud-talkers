@@ -60,7 +60,7 @@ Already in CRUD-Talker I start learn about MSC architecture, SOLID principles an
 
 ### Continued development
 
-The first feature I want to implement is test coverage of 80%, using Mocha, Chai and Sinon libraries, I plan to do this by mid April.
+~~The first feature I want to implement is test coverage of 80%, using Mocha, Chai and Sinon libraries, I plan to do this by mid April.~~ Tests implemented May 25th. (03/25/2022)
 
 The second step is a refactoring of useCases and validations, I plan to remove data validation and errors treatment of useCase layer and do that with middleware. The plan is do that before May.
 
