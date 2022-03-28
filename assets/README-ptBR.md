@@ -6,7 +6,7 @@
 - [Visão geral](#visão-geral)
   - [O desafio](#o-desafio)
   - [Imagens](#imagens)
-  - [Links](#links)
+  - [English README EN-US](../README.md)
 - [Meu processo](#meu-processo)
   - [Construído com](#construído-com)
   - [O que aprendi](#o-que-aprendi)
@@ -38,10 +38,6 @@ __Os usuários devem ser capaz de?__
 <small>Avaliação do Talker-Manager</small>
 ![](./talker_manager_evaluator.png)
 
-### Links
-
-- [English README](../README.md) EN
-
 
 ## Meu processo
 
@@ -60,7 +56,7 @@ Já no CRUD-Talker comecei a aprender sobre arquitetura MSC, os princípios do S
 
 ### Desenvolvimento continuo
 
-A primeira funcionalidade que pretendo implementar é uma cobertura de testes de 80%, usando as bibliotecas, Mocha, Chai e Sinon, planejo fazer isso até o meio de Abril (15/04/2022).
+~~A primeira funcionalidade que pretendo implementar é uma cobertura de testes de 80%, usando as bibliotecas, Mocha, Chai e Sinon, planejo fazer isso até o meio de Abril (15/04/2022).~~ Testes implementados dia 25 de Março (25/03/2022).
 
 O segundo passo é a refatoração do useCase e validações, quero remover a validação de dados e o tratamento de erros da camada useCase e realocá-los como middleware. Planejo fazer isso antes de Maior (05/2022).
 
