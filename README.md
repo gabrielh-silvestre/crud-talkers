@@ -6,7 +6,7 @@ It is CRUD project, what means the user can Create, Read, Update and Delete data
 - [Overview](#overview)
   - [The challenge](#the-challenge)
   - [Screenshot](#screenshot)
-  - [Links](#links)
+  - [Portuguese README PT-BR](assets/README-ptBR.md)
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
@@ -37,10 +37,6 @@ __Users should be able to?__
 
 <small>Talker-Manager evaluation</small>
 ![](assets/talker_manager_evaluator.png)
-
-### Links
-
-- [Portuguese README](assets/README-ptBR.md) PT-BR
 
 
 ## My process
